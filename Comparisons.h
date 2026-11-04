@@ -1,10 +1,9 @@
 //
 // Created by kaden on 11/4/26.
 //
-
 #ifndef COP_3530_PROJECT_2_COMPARISONS_H
 #define COP_3530_PROJECT_2_COMPARISONS_H
-#pragma once
+
 #include "Songs.h"
 
 using songCompare = bool (*)(const Songs&, const Songs&);
