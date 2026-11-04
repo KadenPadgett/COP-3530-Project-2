@@ -1,12 +1,13 @@
-#pragma once
+#include "Songs.h"
+#include "Comparisons.h"
 #include <vector>
 
-void merge(std::vector<int>& songs, int left, int mid, int right) {
+void merge(std::vector<Songs>& songs, int left, int mid, int right, songCompare compare) {
     int leftSize = mid - left + 1;
     int rightSize = right - mid;
 
-    std::vector<int> leftSongs(leftSize);
-    std::vector<int> rightSongs(rightSize);
+    std::vector<Songs> leftSongs(leftSize);
+    std::vector<Songs> rightSongs(rightSize);
 
     for (int i = 0; i < leftSize; i++) {
         leftSongs[i] = songs[left + i];
@@ -21,7 +22,7 @@ void merge(std::vector<int>& songs, int left, int mid, int right) {
     int k = left;
 
     while (i < leftSize && j < rightSize) {
-        if (leftSongs[i] <= rightSongs[j]) {
+        if (compare(leftSongs[i], rightSongs[j])) {
             songs[k++] = leftSongs[i++];
         } else {
             songs[k++] = rightSongs[j++];
@@ -37,14 +38,14 @@ void merge(std::vector<int>& songs, int left, int mid, int right) {
     }
 }
 
-void mergeSort(std::vector<int>& songs, int left, int right) {
+void mergeSort(std::vector<Songs>& songs, int left, int right, songCompare compare) {
     if (left >= right) {
         return;
     }
     int mid = left + (right - left) / 2;
 
-    mergeSort(songs, left, mid);
-    mergeSort(songs, mid + 1, right);
+    mergeSort(songs, left, mid, compare);
+    mergeSort(songs, mid + 1, right, compare);
 
-    merge(songs, left, mid, right);
+    merge(songs, left, mid, right, compare);
 }

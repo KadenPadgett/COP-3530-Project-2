@@ -10,16 +10,15 @@ class Songs {
     std::string artist;
     int duration_ms;
     int year;
-    int acousticness;
-    int danceability;
-    int energy;
-    int instrumentalness;
-    int liveness;
-    int loudness;
-    int speechiness;
-    int tempo;
-    int valence;
+    double acousticness;
+    double danceability;
+    double energy;
+    double instrumentalness;
+    double liveness;
+    double loudness;
+    double speechiness;
+    double tempo;
+    double valence;
     int popularity;
-
 };
 #endif //COP_3530_PROJECT_2_SONGS_H
