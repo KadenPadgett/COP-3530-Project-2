@@ -9,8 +9,6 @@
 #include <vector>
 #include <algorithm>
 #include <fstream>
-#include <stdexcept>
-#include <utility>
 
 inline void parseRow(const std::string& line, std::vector<std::string>& values) {
     values.clear();
