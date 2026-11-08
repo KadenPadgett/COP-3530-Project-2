@@ -10,4 +10,5 @@ add_executable(COP_3530_Project_2
         LoadSongs.h
         main.cpp
         MergeSort.cpp
+        Heapsort.cpp
         Songs.h)
