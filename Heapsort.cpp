@@ -14,7 +14,7 @@ void heapify(vector<Songs>& songs, int heapSize, int i, songCompare compare) {
         if (rightchild<heapSize&& compare(songs[large], songs[rightchild])) {
             large = rightchild;
         }
-        if (large==1){return;}
+        if (large==i){return;}
         swap(songs[i], songs[large]);
         i=large;
     }
